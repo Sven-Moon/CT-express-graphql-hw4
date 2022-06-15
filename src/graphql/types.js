@@ -20,13 +20,13 @@ const UserType = new GraphQLObjectType({
     following: {
       type: GraphQLList(UserType),
       resolve(parent, args) {
-        return User.find(User.find({ follower_id: parent.id }))
+        return Follow.find({ follower_id: parent.id })
       }
     },
     followed_by: {
       type: GraphQLList(UserType),
       resolve(parent, args) {
-        return User.find({ followed_by: parent.id })
+        return Follow.find({ followed_by: parent.id })
       }
     }
   })

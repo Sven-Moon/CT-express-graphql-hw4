@@ -35,7 +35,7 @@ const userByUsername = {
 
 const userByEmail = {
   type: UserType,
-  description: 'Query user by username',
+  description: 'Query user by email',
   args: {
     email: { type: GraphQLString }
   },
@@ -73,10 +73,11 @@ const postsByUserName_WillItWork = {
     username: { type: GraphQLString }
   },
   resolve(parent, args) {
-    return Post.find({ user_id: userByUsername({ username }) })
+    return Post.find({ user_id: userByUsername(username) })
   }
 }
 
+// for these... won't we also need to do a SECOND search to return a USER rathan than a USER_ID???
 const followers = {
   type: GraphQLList(UserType),
   description: 'Followers of user',
@@ -84,7 +85,7 @@ const followers = {
     id: { type: GraphQLID }
   },
   resolve(parent, args) {
-    return User.find({ followed_id: args.id })
+    return Follow.find({ followed_id: args.id })
   }
 }
 
@@ -95,7 +96,7 @@ const followedBy = {
     id: { type: GraphQLID }
   },
   resolve(parent, args) {
-    return User.find({ follower_id: args.id })
+    return Follow.find({ follower_id: args.id })
   }
 }
 
