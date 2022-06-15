@@ -1,0 +1,69 @@
+body {
+  margin: 0;
+  font-family: system-ui, sans-serif;
+  background-color: #C5C1B6;
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  color: #fff;
+  background-color: #88A489;
+  padding: 1em;
+}
+
+.nav__logo {
+  margin-right: 0.5em;
+}
+
+.nav__logo-wordmark {
+  margin: 0;
+  font-weight: 200;
+}
+
+.sweets {
+  max-width: 400px;
+  margin: 1em auto;
+}
+
+.sweet {
+  display: flex;
+  background-color: #fff;
+  padding: 1em;
+  margin-bottom: 1em;
+  border-radius: 3px;
+  box-shadow: 0 2px 1px rgba(0, 0, 0, 0.15);
+}
+
+.sweet__header {
+  color: #aaa;
+  margin-bottom: 0.5em;
+}
+
+.sweet__username {
+  font-weight: bold;
+  color: #000000;
+}
+
+.sweet__body {
+  margin-bottom: 0.5em;
+}
+
+.sweet__footer {
+  font-size: 14px;
+  color: #aaa;
+}
+
+.sweet__avatar {
+  flex-shrink: 0;
+  /* Prevent element from growing/shrinking */
+  width: 40px;
+  /* Fixed dimensions */
+  height: 40px;
+  background-size: cover;
+  /* Fill with image while keeping ratio */
+  margin-right: 0.5em;
+  border-radius: 50%;
+  /* Make it a circle */
+  overflow: hidden;
+}
