@@ -26,14 +26,17 @@ module.exports = async (req, res) => {
           'Content-Type': 'application/json',
         }
       });
-
     const jwtToken = data.data.register
     console.log(jwtToken)
     res.cookie('jwtToken', jwtToken, { maxAge: 900000, httpOnly: true });
 
     res.redirect('/')
   } catch (e) {
-    console.log(e)
+
+    console.log('----------------------------------------');
+    console.log('CATCHING ERRORS:');
+    console.log('----------------------------------------');
+    console.log(e.response.data)
     res.redirect('/auth/register')
   }
 }

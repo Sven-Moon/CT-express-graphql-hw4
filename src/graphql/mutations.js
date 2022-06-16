@@ -12,6 +12,10 @@ const register = {
   },
   async resolve(parent, args) {
 
+    console.log('==================================');
+    console.log('gets to mutation');
+    console.log('==================================');
+
     const checkUser = await User.findOne({ email: args.email })
     if (checkUser) {
       throw new Error("User with this email address already exists")
@@ -50,8 +54,8 @@ const createPost = {
     title: {
       type: GraphQLString
     },
-    body: GraphQLString,
-    user_id: GraphQLString
+    body: { type: GraphQLString },
+    user_id: { type: GraphQLString }
   },
   async resolve(parent, args) {
     const post = new Post({

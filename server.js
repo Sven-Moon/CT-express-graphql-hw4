@@ -20,11 +20,11 @@ app.use("/graphql", graphqlHTTP({
 
 app.use(express.urlencoded({ extended: true }))// !After GraphQL & before the other routes
 
-app.use(authenticate)
 
 
 app.set('view engine', 'ejs')
 app.set('views', path.join(__dirname, '/src/templates/views'))
+app.use(authenticate)
 
 require("./src/routes")(app)
 
@@ -35,27 +35,3 @@ app.listen(process.env.PORT, () => {
 })
 
 
-
-
-
-
-
-app.get('/', (req, res) => {
-  res.render('pages/home')
-})
-
-app.get('/profile', (req, res) => {
-  res.render('pages/profile')
-})
-
-app.get('/login', (req, res) => {
-  res.render('pages/login')
-})
-
-app.get('/register', (req, res) => {
-  res.render('pages/register')
-})
-
-app.get('/user', (req, res) => {
-  res.render('pages/user')
-})
