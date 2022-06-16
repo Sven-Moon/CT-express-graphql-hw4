@@ -14,19 +14,19 @@ function renderDate(dateString) {
 
 function createTemplate(cardData) {
   const card = document.createElement("article");
-  card.className = "sweet";
+  card.className = "neat";
   card.innerHTML = `
-    <div class="sweet__avatar" style="background-image: url(${cardData.user.avatar
+    <div class="neat__avatar" style="background-image: url(${cardData.user.avatar
     });">
     </div>
     <div>
-      <header class="sweet__header">
-        <span class="sweet__username">@${cardData.user.username}</span>
+      <header class="neat__header">
+        <span class="neat__username">@${cardData.user.username}</span>
         <span>&#183;</span>
         <span>${renderDate(cardData.created_at)}</span>
       </header>
-      <div class="sweet__body">${cardData.text}</div>
-      <footer class="sweet__footer">
+      <div class="neat__body">${cardData.text}</div>
+      <footer class="neat__footer">
         Likes: ${cardData.likes}
       </footer> 
     </div>

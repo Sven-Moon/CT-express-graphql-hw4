@@ -32,10 +32,6 @@ module.exports = async (req, res) => {
 
     res.redirect('/')
   } catch (e) {
-
-    console.log('----------------------------------------');
-    console.log('CATCHING ERRORS:');
-    console.log('----------------------------------------');
     console.log(e.response.data)
     res.redirect('/auth/register')
   }

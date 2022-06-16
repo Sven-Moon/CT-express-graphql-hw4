@@ -12,9 +12,6 @@ const register = {
   },
   async resolve(parent, args) {
 
-    console.log('==================================');
-    console.log('gets to mutation');
-    console.log('==================================');
 
     const checkUser = await User.findOne({ email: args.email })
     if (checkUser) {
