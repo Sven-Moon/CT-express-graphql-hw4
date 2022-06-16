@@ -1,4 +1,9 @@
-# This homework
+# This Homework
+Move your routes and templates to use the application structure we used in class. A routes folder separated out into “blueprints”. You should also have dedicated folders for your template views and partials
+Add POST routes and mutations to your applications. You should add functionality to create users and add posts to your database
+
+
+# Last Homework
 * Setup your GraphQL route in the main express application for testing
 * Setup your mongoose models and GraphQL types, you can add whatever models/types you think you will need, but you must add at least a post and a user. You can add whatever fields you think make sense to each.
 * Setup your GraphQL queries, you can add whatever queries you think you will need, but you must add at least a user query (by user id), a post query (by post id), and a query to get all of your posts

@@ -1,7 +1,6 @@
 const { GraphQLList, GraphQLID, GraphQLString } = require('graphql')
-const { UserType, PostType, FollowType } = require('./types')
+const { UserType, PostType } = require('./types')
 const { User, Post, Follow } = require('../models')
-const { query } = require('express')
 
 const users = {
   type: new GraphQLList(UserType),
@@ -56,7 +55,7 @@ const postById = {
 }
 
 const postsByUserId = {
-  type: GraphQLList(PostType),
+  type: new GraphQLList(PostType),
   description: 'Posts by user ID',
   args: {
     id: { type: GraphQLID }
@@ -67,7 +66,7 @@ const postsByUserId = {
 }
 
 const postsByUserName_WillItWork = {
-  type: GraphQLList(PostType),
+  type: new GraphQLList(PostType),
   description: 'Posts by user ID',
   args: {
     username: { type: GraphQLString }
@@ -77,9 +76,9 @@ const postsByUserName_WillItWork = {
   }
 }
 
-// for these... won't we also need to do a SECOND search to return a USER rathan than a USER_ID???
+// for these... won't we also need to do a SECOND search to return a USER rather than a USER_ID???
 const followers = {
-  type: GraphQLList(UserType),
+  type: new GraphQLList(UserType),
   description: 'Followers of user',
   args: {
     id: { type: GraphQLID }
@@ -90,7 +89,7 @@ const followers = {
 }
 
 const followedBy = {
-  type: GraphQLList(UserType),
+  type: new GraphQLList(UserType),
   description: 'Users user is following',
   args: {
     id: { type: GraphQLID }
@@ -100,3 +99,4 @@ const followedBy = {
   }
 }
 
+module.exports = { users, userById, userByEmail, followedBy, followers, postsByUserName_WillItWork, postsByUserId, postById }

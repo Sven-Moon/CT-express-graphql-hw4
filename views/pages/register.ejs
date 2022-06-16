@@ -1,4 +1,18 @@
-<%- include('../partials/header.ejs') %>
-  <h1>Register</h1>
+<%- include('../partials/header-dark.ejs') %>
+
+  <main class="container">
+    <div class="row">
+      <div class="col-md-6 offset-3">
+        <div class="card mt-5">
+          <div class="card-body">
+            <h1 class="mb-4">Register</h1>
+
+            <% include ('../partials/register-form.ejs') %>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
 
   <%- include('../partials/footer.ejs') %>

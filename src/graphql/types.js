@@ -2,7 +2,6 @@ const { GraphQLObjectType, GraphQLInputObjectType, GraphQLID, GraphQLString, Gra
 
 
 const { User, Post } = require('../models')
-const postModel = require('../models/post.model')
 
 const UserType = new GraphQLObjectType({
   name: 'User',
@@ -12,19 +11,19 @@ const UserType = new GraphQLObjectType({
     username: { type: GraphQLString },
     email: { type: GraphQLString },
     posts: {
-      type: GraphQLList(PostType),
+      type: new GraphQLList(PostType),
       resolve(parent, args) {
         return Post.find({ user_id: parent.id })
       }
     },
     following: {
-      type: GraphQLList(UserType),
+      type: new GraphQLList(UserType),
       resolve(parent, args) {
         return Follow.find({ follower_id: parent.id })
       }
     },
     followed_by: {
-      type: GraphQLList(UserType),
+      type: new GraphQLList(UserType),
       resolve(parent, args) {
         return Follow.find({ followed_by: parent.id })
       }
@@ -56,3 +55,5 @@ const FollowType = new GraphQLObjectType({
     followed_id: { type: String }
   })
 })
+
+module.exports = { UserType, PostType, FollowType }
