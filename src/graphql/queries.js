@@ -10,7 +10,7 @@ const users = {
   }
 }
 
-const user = {
+const userById = {
   type: UserType,
   description: 'Query user by id',
   args: {
@@ -99,4 +99,4 @@ const followedBy = {
   }
 }
 
-module.exports = { users, user, userByEmail, followedBy, followers, postsByUserName_WillItWork, postsByUserId, postById }
+module.exports = { users, user: userById, userByEmail, followedBy, followers, postsByUserName_WillItWork, postsByUserId, postById }

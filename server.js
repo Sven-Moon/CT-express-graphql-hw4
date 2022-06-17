@@ -6,6 +6,7 @@ const schema = require('./src/graphql/schema')
 const { graphqlHTTP } = require('express-graphql')
 const { authenticate } = require('./src/middleware/auth')
 const cookieParser = require('cookie-parser')
+const { userData } = require('./src/middleware/userData')
 
 dotenv.config()
 const app = express()
@@ -25,6 +26,8 @@ app.use(express.urlencoded({ extended: true }))// !After GraphQL & before the ot
 app.set('view engine', 'ejs')
 app.set('views', path.join(__dirname, '/src/templates/views'))
 app.use(authenticate)
+app.use(userData)
+
 
 require("./src/routes")(app)
 

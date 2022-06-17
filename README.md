@@ -1,4 +1,9 @@
 # This Homework
+Add authentication to your app. You should be able to login, register, and logout.
+Setup the authentication middleware as well as userData middleware to pull in the user’s posts and other information from GraphQL
+
+
+# HW3:
 Move your routes and templates to use the application structure we used in class. A routes folder separated out into “blueprints”. You should also have dedicated folders for your template views and partials
 Add POST routes and mutations to your applications. You should add functionality to create users and add posts to your database
 

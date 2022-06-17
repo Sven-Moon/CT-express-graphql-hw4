@@ -48,9 +48,7 @@ const login = {
 const createPost = {
   type: GraphQLString,
   args: {
-    title: {
-      type: GraphQLString
-    },
+    title: { type: GraphQLString },
     body: { type: GraphQLString },
     user_id: { type: GraphQLString }
   },
